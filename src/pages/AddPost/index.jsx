@@ -73,7 +73,7 @@ export const AddPost = () => {
   React.useEffect(() => {
     if (id) {
       axios
-        .get(`${REACK_APP_API_URL}/posts/${id}`)
+        .get(`${REACT_APP_API_URL}/posts/${id}`)
         .then(({ data }) => {
           setTitle(data.title);
           setText(data.text);
@@ -133,7 +133,7 @@ export const AddPost = () => {
           </Button>
           <img
             className={styles.image}
-            src={`${REACK_APP_API_URL}${imageUrl}`}
+            src={`${REACT_APP_API_URL}${imageUrl}`}
             alt="Uploaded"
           />
         </>
