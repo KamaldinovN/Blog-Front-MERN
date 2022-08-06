@@ -14,7 +14,7 @@ export const FullPost = () => {
   const { id } = useParams();
   React.useEffect(() => {
     axios
-      .get(`http://localhost:5000/posts/${id}`)
+      .get(`https://blog-mern-kamaldinov.herokuapp.com/${id}`)
       .then((res) => {
         setData(res.data);
         setLoading(false);
@@ -34,7 +34,11 @@ export const FullPost = () => {
       <Post
         id={data._id}
         title={data.title}
-        imageUrl={data.imageUrl ? `${REACT_APP_API_URL}${data.imageUrl}` : ""}
+        imageUrl={
+          data.imageUrl
+            ? `https://blog-mern-kamaldinov.herokuapp.com/${data.imageUrl}`
+            : ""
+        }
         user={data.user}
         createdAt={data.createdAt}
         viewsCount={data.viewsCount}

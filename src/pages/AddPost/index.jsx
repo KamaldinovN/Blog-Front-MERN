@@ -59,8 +59,14 @@ export const AddPost = () => {
       };
 
       const { data } = isEditing
-        ? await axios.patch(`http://localhost:5000/posts/${id}`, fields)
-        : await axios.post(`http://localhost:5000/posts`, fields);
+        ? await axios.patch(
+            `https://blog-mern-kamaldinov.herokuapp.com/posts/${id}`,
+            fields
+          )
+        : await axios.post(
+            `https://blog-mern-kamaldinov.herokuapp.com/posts`,
+            fields
+          );
 
       const _id = isEditing ? id : data._id;
 
@@ -73,7 +79,7 @@ export const AddPost = () => {
   React.useEffect(() => {
     if (id) {
       axios
-        .get(`${REACT_APP_API_URL}/posts/${id}`)
+        .get(`https://blog-mern-kamaldinov.herokuapp.com/posts/${id}`)
         .then(({ data }) => {
           setTitle(data.title);
           setText(data.text);
@@ -133,7 +139,7 @@ export const AddPost = () => {
           </Button>
           <img
             className={styles.image}
-            src={`${REACT_APP_API_URL}${imageUrl}`}
+            src={`https://blog-mern-kamaldinov.herokuapp.com/${imageUrl}`}
             alt="Uploaded"
           />
         </>
