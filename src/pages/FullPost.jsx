@@ -14,7 +14,7 @@ export const FullPost = () => {
   const { id } = useParams();
   React.useEffect(() => {
     axios
-      .get(`https://frozen-escarpment-09799.herokuapp.com/post/${id}`)
+      .get(`https://frozen-escarpment-09799.herokuapp.com/posts/${id}`)
       .then((res) => {
         setData(res.data);
         setLoading(false);
