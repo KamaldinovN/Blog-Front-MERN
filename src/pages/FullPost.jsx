@@ -36,7 +36,7 @@ export const FullPost = () => {
         title={data.title}
         imageUrl={
           data.imageUrl
-            ? `https://blog-mern-kamaldinov.herokuapp.com/${data.imageUrl}`
+            ? `https://frozen-escarpment-09799.herokuapp.com${data.imageUrl}`
             : ""
         }
         user={data.user}
