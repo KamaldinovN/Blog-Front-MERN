@@ -2,18 +2,22 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../../axios";
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
-  const { data } = await axios.get(`${REACT_APP_API_URL}/posts`);
+  const { data } = await axios.get(
+    `https://blog-mern-kamaldinov.herokuapp.com/posts`
+  );
   return data;
 });
 export const fetchTags = createAsyncThunk("posts/fetchTags", async () => {
-  const { data } = await axios.get(`${REACT_APP_API_URL}/tags`);
+  const { data } = await axios.get(
+    `https://blog-mern-kamaldinov.herokuapp.com/tags`
+  );
   return data;
 });
 
 export const fetchRemovePost = createAsyncThunk(
   "posts/fetchRemovePost",
   (id) => {
-    axios.delete(`${REACT_APP_API_URL}/posts/${id}`);
+    axios.delete(`https://blog-mern-kamaldinov.herokuapp.com/posts/${id}`);
   }
 );
 
