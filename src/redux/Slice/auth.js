@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const fetchAuth = createAsyncThunk("/auth/fetchAuth", async (params) => {
   const { data } = await axios.post(
-    `https://blog-mern-kamaldinov.herokuapp.com/auth/login`,
+    `https://frozen-escarpment-09799.herokuapp.com/auth/login`,
     params
   );
   return data;
@@ -13,7 +13,7 @@ export const fetchRegister = createAsyncThunk(
   "/auth/fetchRegister",
   async (params) => {
     const { data } = await axios.post(
-      `https://blog-mern-kamaldinov.herokuapp.com/auth/register`,
+      `https://frozen-escarpment-09799.herokuapp.com/auth/register`,
       params
     );
     return data;
@@ -22,7 +22,7 @@ export const fetchRegister = createAsyncThunk(
 
 export const fetchAuthMe = createAsyncThunk("/auth/fetchAuthMe", async () => {
   const { data } = await axios.get(
-    `https://blog-mern-kamaldinov.herokuapp.com/auth/me`
+    `https://frozen-escarpment-09799.herokuapp.com/auth/me`
   );
   return data;
 });

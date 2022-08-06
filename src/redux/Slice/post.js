@@ -3,13 +3,13 @@ import axios from "../../axios";
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   const { data } = await axios.get(
-    `https://blog-mern-kamaldinov.herokuapp.com/posts`
+    `https://frozen-escarpment-09799.herokuapp.com/posts`
   );
   return data;
 });
 export const fetchTags = createAsyncThunk("posts/fetchTags", async () => {
   const { data } = await axios.get(
-    `https://blog-mern-kamaldinov.herokuapp.com/tags`
+    `https://frozen-escarpment-09799.herokuapp.com/tags`
   );
   return data;
 });
@@ -17,7 +17,7 @@ export const fetchTags = createAsyncThunk("posts/fetchTags", async () => {
 export const fetchRemovePost = createAsyncThunk(
   "posts/fetchRemovePost",
   (id) => {
-    axios.delete(`https://blog-mern-kamaldinov.herokuapp.com/posts/${id}`);
+    axios.delete(`https://frozen-escarpment-09799.herokuapp.com/posts/${id}`);
   }
 );
 

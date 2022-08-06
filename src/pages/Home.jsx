@@ -42,7 +42,9 @@ export const Home = () => {
                 id={obj._id}
                 title={obj.title}
                 imageUrl={
-                  obj.imageUrl ? `${REACT_APP_API_URL}${obj.imageUrl}` : ""
+                  obj.imageUrl
+                    ? `https://frozen-escarpment-09799.herokuapp.com${obj.imageUrl}`
+                    : ""
                 }
                 user={obj.user}
                 createdAt={obj.createdAt}

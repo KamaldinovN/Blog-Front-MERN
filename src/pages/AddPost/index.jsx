@@ -29,7 +29,7 @@ export const AddPost = () => {
       const file = event.target.files[0];
       formData.append("image", file);
       const { data } = await axios.post(
-        "http://localhost:5000/upload",
+        "https://frozen-escarpment-09799.herokuapp.com/upload",
         formData
       );
       setImageUrl(data.url);
@@ -60,11 +60,11 @@ export const AddPost = () => {
 
       const { data } = isEditing
         ? await axios.patch(
-            `https://blog-mern-kamaldinov.herokuapp.com/posts/${id}`,
+            `https://frozen-escarpment-09799.herokuapp.com/posts/${id}`,
             fields
           )
         : await axios.post(
-            `https://blog-mern-kamaldinov.herokuapp.com/posts`,
+            `https://frozen-escarpment-09799.herokuapp.com/posts`,
             fields
           );
 
