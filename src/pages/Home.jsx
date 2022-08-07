@@ -47,7 +47,7 @@ export const Home = () => {
                     : ""
                 }
                 user={obj.user}
-                createdAt={obj.createdAt}
+                createdAt={Date.parse(obj.createdAt)}
                 viewsCount={obj.viewsCount}
                 commentsCount={3}
                 tags={obj.tags}
