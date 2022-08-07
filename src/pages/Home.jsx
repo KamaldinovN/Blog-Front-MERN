@@ -48,7 +48,7 @@ export const Home = () => {
                 }
                 user={obj.user}
                 createdAt={Date.parse(obj.createdAt)}
-                viewsCount={obj.viewsCount}
+                viewsCount={obj.viewsCount.replace(/T|\.[\s\S]*/g, ' ').trim()}
                 commentsCount={3}
                 tags={obj.tags}
                 isEditable={userData?._id === obj.user?._id}
