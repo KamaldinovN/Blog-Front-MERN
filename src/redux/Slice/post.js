@@ -7,6 +7,19 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   );
   return data;
 });
+
+export const fetchNewPosts = createAsyncThunk("posts/fetchNewPosts", async () => {
+  const { data } = await axios.get(
+      `https://frozen-escarpment-09799.herokuapp.com/posts/new`
+  );
+  return data;
+});
+export const fetchPopularPosts = createAsyncThunk("posts/fetchPopularPosts", async () => {
+  const { data } = await axios.get(
+      `https://frozen-escarpment-09799.herokuapp.com/posts/popular`
+  );
+  return data;
+});
 export const fetchTags = createAsyncThunk("posts/fetchTags", async () => {
   const { data } = await axios.get(
     `https://frozen-escarpment-09799.herokuapp.com/tags`
@@ -48,6 +61,31 @@ const postsSlice = createSlice({
       state.posts.items = [];
       state.posts.status = "error";
     },
+    ////////////////////////////////////
+    [fetchNewPosts.pending]: (state) => {
+      state.posts.status = "loading";
+    },
+    [fetchNewPosts.fulfilled]: (state, action) => {
+      state.posts.items = action.payload;
+      state.posts.status = "loaded";
+    },
+    [fetchNewPosts.rejected]: (state) => {
+      state.posts.items = [];
+      state.posts.status = "error";
+    },
+    ///////////////////////////////////
+    [fetchPopularPosts.pending]: (state) => {
+      state.posts.status = "loading";
+    },
+    [fetchPopularPosts.fulfilled]: (state, action) => {
+      state.posts.items = action.payload;
+      state.posts.status = "loaded";
+    },
+    [fetchPopularPosts.rejected]: (state) => {
+      state.posts.items = [];
+      state.posts.status = "error";
+    },
+
     ////////////////////////////////////
     [fetchTags.pending]: (state) => {
       state.tags.status = "loading";

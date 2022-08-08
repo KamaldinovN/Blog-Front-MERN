@@ -2,34 +2,50 @@ import React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Grid from "@mui/material/Grid";
+
 import { useDispatch, useSelector } from "react-redux";
 
 import { Post } from "../components";
 import { TagsBlock } from "../components";
 import { CommentsBlock } from "../components";
-import { fetchPosts, fetchTags } from "../redux/Slice/post";
+import { fetchPosts, fetchPopularPosts, fetchNewPosts, fetchTags } from "../redux/Slice/post";
 
 export const Home = () => {
+    const [value, setValue] = React.useState(0);
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.auth.data);
   const { posts, tags } = useSelector((state) => state.posts);
   const isPostsLoading = posts.status === "loading";
   const isTagsLoading = tags.status === "loading";
+
+    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+     setValue(newValue);
+        if(newValue === 1){
+            dispatch(fetchNewPosts())
+        }
+        if(newValue === 2){
+            dispatch(fetchPopularPosts())
+        }
+
+    }
+
   React.useEffect(() => {
     dispatch(fetchPosts());
     dispatch(fetchTags());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+   //   eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
 
   return (
     <>
       <Tabs
         style={{ marginBottom: 15 }}
-        value={0}
-        aria-label="basic tabs example"
+        value={value}
+        onChange={handleChange}
       >
-        <Tab label="New" />
-        <Tab label="Popular" />
+      <Tab label="All"/>
+        <Tab  label="New"  />
+        <Tab label="Popular"/>
       </Tabs>
       <Grid container spacing={4}>
         <Grid xs={8} item>
@@ -47,8 +63,8 @@ export const Home = () => {
                     : ""
                 }
                 user={obj.user}
-                createdAt={Date.parse(obj.createdAt)}
-                viewsCount={obj.viewsCount.replace(/T|\.[\s\S]*/g, ' ').trim()}
+                createdAt={obj.createdAt.replace(/T|\.[\s\S]*/g, ' ').trim()}
+                viewsCount={obj.viewsCount}
                 commentsCount={3}
                 tags={obj.tags}
                 isEditable={userData?._id === obj.user?._id}
