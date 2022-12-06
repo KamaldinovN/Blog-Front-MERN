@@ -9,7 +9,7 @@ function App() {
   React.useEffect(() => {
     if (localStorage.getItem("token")) {
       axios
-        .get(`https://frozen-escarpment-09799.herokuapp.com//auth/me`)
+        .get(`https://mernblog-qnjk.onrender.com/auth/me`)
         .then((res) => console.log(res.data));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
