@@ -3,26 +3,26 @@ import axios from "../../axios";
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   const { data } = await axios.get(
-    `https://frozen-escarpment-09799.herokuapp.com/posts`
+    `https://mernblog-qnjk.onrender.com/posts`
   );
   return data;
 });
 
 export const fetchNewPosts = createAsyncThunk("posts/fetchNewPosts", async () => {
   const { data } = await axios.get(
-      `https://frozen-escarpment-09799.herokuapp.com/posts/new`
+      `https://mernblog-qnjk.onrender.com/posts/new`
   );
   return data;
 });
 export const fetchPopularPosts = createAsyncThunk("posts/fetchPopularPosts", async () => {
   const { data } = await axios.get(
-      `https://frozen-escarpment-09799.herokuapp.com/posts/popular`
+      `https://mernblog-qnjk.onrender.com/posts/popular`
   );
   return data;
 });
 export const fetchTags = createAsyncThunk("posts/fetchTags", async () => {
   const { data } = await axios.get(
-    `https://frozen-escarpment-09799.herokuapp.com/tags`
+    `https://mernblog-qnjk.onrender.com/tags`
   );
   return data;
 });
@@ -30,7 +30,7 @@ export const fetchTags = createAsyncThunk("posts/fetchTags", async () => {
 export const fetchRemovePost = createAsyncThunk(
   "posts/fetchRemovePost",
   (id) => {
-    axios.delete(`https://frozen-escarpment-09799.herokuapp.com/posts/${id}`);
+    axios.delete(`https://mernblog-qnjk.onrender.com/posts/${id}`);
   }
 );
 
