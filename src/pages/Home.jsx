@@ -59,7 +59,7 @@ export const Home = () => {
                 title={obj.title}
                 imageUrl={
                   obj.imageUrl
-                    ? `https://frozen-escarpment-09799.herokuapp.com${obj.imageUrl}`
+                    ? `https://mernblog-qnjk.onrender.com${obj.imageUrl}`
                     : ""
                 }
                 user={obj.user}
