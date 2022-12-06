@@ -14,7 +14,7 @@ export const FullPost = () => {
   const { id } = useParams();
   React.useEffect(() => {
     axios
-      .get(`https://frozen-escarpment-09799.herokuapp.com/posts/${id}`)
+      .get(`https://mernblog-qnjk.onrender.com/posts/${id}`)
       .then((res) => {
         setData(res.data);
         setLoading(false);
@@ -36,7 +36,7 @@ export const FullPost = () => {
         title={data.title}
         imageUrl={
           data.imageUrl
-            ? `https://frozen-escarpment-09799.herokuapp.com${data.imageUrl}`
+            ? `https://mernblog-qnjk.onrender.com${data.imageUrl}`
             : ""
         }
         user={data.user}
